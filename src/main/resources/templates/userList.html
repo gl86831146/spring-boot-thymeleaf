@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/user.css">
+    <title>User List</title>
+</head>
+<body>
+<div class="container mx-auto">
+    <h1 class="text-2xl font-bold mt-5">用户列表</h1>
+
+    <table class="table-auto mt-5 w-full">
+        <thead>
+        <tr>
+            <th class="border px-4 py-2">ID</th>
+            <th class="border px-4 py-2">姓名</th>
+            <th class="border px-4 py-2">邮箱</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user : ${users}">
+            <td class="border px-4 py-2" th:text="${user.id}"></td>
+            <td class="border px-4 py-2" th:text="${user.name}"></td>
+            <td class="border px-4 py-2" th:text="${user.email}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <form action="/add" method="post" class="mt-5">
+        <input type="text" name="name" placeholder="输入用户的姓名" required class="border p-2">
+        <input type="text" name="email" placeholder="输入用户的邮箱" required class="border p-2">
+        <button type="submit" class="bg-blue-500 text-white p-2 ml-2">增加用户</button>
+    </form>
+
+
+</div>
+</body>
+</html>

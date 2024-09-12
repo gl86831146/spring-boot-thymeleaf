@@ -1,0 +1,7 @@
+logging:
+  level:
+    root: debug
+    top.gsc.springbootthymeleaf: debug
+
+spring:
+   cache: false #
